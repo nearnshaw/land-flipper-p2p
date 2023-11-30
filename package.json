@@ -11,8 +11,8 @@
   },
   "devDependencies": {
     "@dcl/asset-packs": "latest",
-    "@dcl/js-runtime": "7.3.30-7005296659.commit-e71b916",
-    "@dcl/sdk": "https://sdk-team-cdn.decentraland.org/@dcl/js-sdk-toolchain/branch/feat/comms-sync/dcl-sdk-7.3.30-7005296659.commit-e71b916.tgz"
+    "@dcl/js-runtime": "7.3.30-7050336380.commit-697913e",
+    "@dcl/sdk": "https://sdk-team-cdn.decentraland.org/@dcl/js-sdk-toolchain/branch/feat/comms-sync/dcl-sdk-7.3.30-7050336380.commit-697913e.tgz"
   },
   "engines": {
     "node": ">=16.0.0",

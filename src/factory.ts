@@ -15,17 +15,11 @@ import { Color4, Quaternion, Vector3 } from '@dcl/sdk/math'
 import { getRandomHexColor } from './utils'
 import * as utils from '@dcl-sdk/utils'
 import { syncEntity } from '@dcl/sdk/network'
+import { SyncEntityIDs } from './modules/factory'
 
 
 
-export let MY_COLOR: TileColor = TileColor.RED
-
-export enum SyncEntityIDs {
-	BLUE = 1,
-	GREEN = 2,
-	RED = 3,
-	YELLOW = 4,
-}
+export let MY_COLOR: TileColor = Math.floor(Math.random() * 4 + 1)
 
 
 export function createTile(x: number, y: number, z: number, id: number) {
@@ -79,7 +73,7 @@ export function createColorSelector(x: number, y: number, z: number, color: Tile
 
 	utils.triggers.addTrigger(entity, 1, 1, [{ type: 'box' }], (entity) => {
 		MY_COLOR = color
-		console.log("CHANGED COLOR TO ", color)
+		//console.log("CHANGED COLOR TO ", color)
 		activateSelector(entity, color)
 
 	}, (entity) => {
