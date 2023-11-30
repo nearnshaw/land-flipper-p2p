@@ -9,12 +9,4 @@ export const Spinner = engine.defineComponent('spinner', { speed: Schemas.Number
 // engine.getEntitiesWith(Cube)
 export const Cube = engine.defineComponent('cube-id', {})
 
-export enum TileColor {
-	NONE,
-	RED,
-	BLUE,
-	YELLOW,
-	GREEN
-}
-
-export const Tile = engine.defineComponent('tile', { color: Schemas.EnumNumber<TileColor>(TileColor, TileColor.NONE) })
+export const Tile = engine.defineComponent('tile', {})
