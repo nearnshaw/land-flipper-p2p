@@ -4,9 +4,7 @@ import { Animator, AudioSource, AvatarAttach, GltfContainer, Material, MeshRende
 import { initAssetPacks } from '@dcl/asset-packs/dist/scene-entrypoint'
 
 import { colorTiles, resetAllTiles } from './systems'
-import { setupUi } from './ui'
-import { createColorSelector, createTile } from './factory'
-import { TileColor } from './components'
+import { createTile } from './factory'
 import { syncEntity } from '@dcl/sdk/network'
 import * as utils from '@dcl-sdk/utils'
 import { SyncEntityIDs, createBeerGlass, createTap } from './modules/factory'
@@ -37,18 +35,7 @@ export function main() {
 		}
 	}
 
-	// color pickers
-	const red = createColorSelector(4, 0, 60, TileColor.RED, SyncEntityIDs.REDTILE)
-
-	const blue = createColorSelector(8, 0, 60, TileColor.BLUE, SyncEntityIDs.BLUETILE)
-
-	const green = createColorSelector(12, 0, 60, TileColor.GREEN, SyncEntityIDs.GREENTILE)
-
-	const yellow = createColorSelector(16, 0, 60, TileColor.YELLOW, SyncEntityIDs.YELLOWTILE)
-
-
 	engine.addSystem(colorTiles)
-
 
 	const floor = engine.addEntity()
 	Transform.create(floor, { position: { x: 40, y: -0.01, z: 40 }, scale: { x: 80, y: 80, z: 80 }, rotation: Quaternion.fromEulerDegrees(90, 0, 0) })
@@ -58,9 +45,6 @@ export function main() {
 	utils.addTestCube({ position: Vector3.create(40, 1, 60) }, (cube) => {
 		resetAllTiles()
 	}, "RESET ALL TILES", Color4.Red())
-
-	// draw UI. Here is the logic to spawn cubes.
-	//setupUi()
 
 	// Create tables
 	const tables = engine.addEntity()
