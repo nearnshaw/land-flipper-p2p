@@ -1,6 +1,6 @@
 // We define the empty imports so the auto-complete feature works as expected.
 import { Color4, Quaternion, Vector3 } from '@dcl/sdk/math'
-import { Animator, AudioSource, AvatarAttach, GltfContainer, Material, MeshRenderer, PointerEventType, PointerEvents, Transform, VisibilityComponent, engine, pointerEventsSystem } from '@dcl/sdk/ecs'
+import { Animator, AudioSource, AvatarAttach, CameraModeArea, CameraType, GltfContainer, Material, MeshRenderer, PointerEventType, PointerEvents, Transform, VisibilityComponent, engine, pointerEventsSystem } from '@dcl/sdk/ecs'
 import { initAssetPacks } from '@dcl/asset-packs/dist/scene-entrypoint'
 
 import { colorTiles, resetAllTiles } from './systems'
@@ -91,11 +91,14 @@ export function main() {
 	Transform.create(dispenserEntity, {
 		position: Vector3.create(8, 1.25, 7.5)
 	})
+	CameraModeArea.create(dispenserEntity, { area: { x: 4, y: 5, z: 5 }, mode: CameraType.CT_FIRST_PERSON })
 
 	// Create taps
 	createTap(BeerType.RED, dispenserEntity, SyncEntityIDs.RED)
 	createTap(BeerType.GREEN, dispenserEntity, SyncEntityIDs.GREEN)
 	createTap(BeerType.YELLOW, dispenserEntity, SyncEntityIDs.YELLOW)
+
+
 
 	// Beer glasses
 	const beerGlassModel = 'models/beerGlass.glb'
